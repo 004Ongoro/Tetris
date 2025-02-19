@@ -1,0 +1,284 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #222;
+  color: white;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+h1 {
+  margin-top: 20px;
+  font-size: 36px;
+  color: cyan;
+}
+
+/* Difficulty Selector */
+#difficulty-selector {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+#difficulty-selector label {
+  margin-right: 10px;
+}
+
+#difficulty-selector select {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: white;
+}
+
+#difficulty-selector select:focus {
+  outline: none;
+}
+
+/* Game Board */
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(20, 30px);
+  margin: 20px auto;
+  width: 300px;
+  height: 600px;
+  border: 2px solid #fff;
+  background-color: #111;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #333;
+}
+
+/* Block Colors */
+.cell.square {
+  background-color: cyan;
+}
+
+.cell.t-shape {
+  background-color: orange;
+}
+
+.cell.z-shape {
+  background-color: red;
+}
+
+.cell.s-shape {
+  background-color: lime;
+}
+
+.cell.line {
+  background-color: blue;
+}
+
+.cell.l-shape {
+  background-color: yellow;
+}
+
+.cell.j-shape {
+  background-color: magenta;
+}
+
+/* Falling Block (With Subtle Glow) */
+.falling-block {
+  animation: subtle-glow 1s infinite alternate;
+}
+
+@keyframes subtle-glow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Mobile Controls */
+#controls {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+#controls button {
+  width: 70px;
+  height: 70px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#controls button:hover,
+#controls button:active {
+  background-color: #555;
+}
+
+/* Next Piece Preview */
+#next-piece-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 20px);
+  grid-template-rows: repeat(4, 20px);
+  margin: 10px auto;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #fff;
+  background-color: #111;
+}
+
+#next-piece-preview .cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #333;
+}
+
+/* Start Over and Pause Buttons */
+#start-over-btn,
+#pause-btn {
+  margin: 10px;
+}
+
+
+/* Hidden UI */
+#hidden-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+#hidden-ui p {
+  margin: 5px 0;
+}
+
+/* Toggle Button */
+#toggle-ui-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#toggle-ui-btn:hover {
+  background-color: #555;
+}
+
+
+/* Footer */
+footer {
+  margin-top: auto;
+  padding: 10px;
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+}
+
+footer a {
+  color: cyan;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #222;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 340px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #555;
+}
+
+.modal-content small {
+  display: block;
+  font-size: 12px;
+  margin-top: 10px;
+  color: #aaa;
+}
